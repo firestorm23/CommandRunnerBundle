@@ -54,7 +54,7 @@ class CommandRunnerController extends Controller
             if (empty($option)) {
                 $string .= ' ' . $key;
             } else {
-                $string .= ' ' . sprintf('%s=%s', $key, $option);
+                $string .= ' ' . sprintf('%s=%s', $key, html_entity_decode($option));
             }
         }
 
