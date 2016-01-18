@@ -59,6 +59,7 @@ class CommandRunnerController extends Controller
         }
 
         $input = new StringInput($string);
+        $input->setInteractive(false);
         $output = new StreamOutput(fopen('php://temp', 'w'));
 
         // Run the command
