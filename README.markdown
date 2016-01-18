@@ -1,3 +1,7 @@
+Fork information
+===================
+This is fork of borNfreee/CommandRunnerBundle. I fixed the issue with wrong work of non-value command parameters. 
+
 CommandRunnerBundle
 ===================
 
