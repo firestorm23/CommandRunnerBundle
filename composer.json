@@ -1,7 +1,7 @@
 {
-    "name": "mrafalko/command-runner-bundle",
+    "name": "firestorm23/command-runner-bundle",
     "type": "symfony-bundle",
-    "description": "Executes symfony console command from a Controller.",
+    "description": "Fork of borNfreee/CommandRunnerBundle. Executes symfony console command from a Controller.",
     "keywords": ["command","console", "controller"],
     "homepage": "https://github.com/mrafalko/CommandRunnerBundle",
     "license": "MIT",
