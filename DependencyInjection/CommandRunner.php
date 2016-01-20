@@ -8,7 +8,7 @@ use Symfony\Component\Console\Output\StreamOutput;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 use Symfony\Component\Console\Application;
 
-class CommandRunner {
+class CommandHelper {
 
     /** @var ContainerInterface */
     private $container;
@@ -34,6 +34,8 @@ class CommandRunner {
 
         return $response;
     }
+
+
 }
 
 ?>
