@@ -22,51 +22,11 @@ class CommandRunnerController extends Controller
      */
     public function indexAction($commandName, Request $request)
     {
-        $kernel = $this->container->get('kernel');
-        $app = new Application($kernel);
 
-        $params = $request->get('params');
+        $commandHelper = $this->get('command.helper');
+        $command = $commandHelper->buildCommandFromQuery($commandName, $request);
 
-        if (!is_array($params)) {
-            // Bad params
-            $params = array();
-        }
-
-        $options = $request->get('options');
-
-        if (!is_array($options)) {
-            // Bad options
-            $options = array();
-        }
-
-        $preparedOptions = array();
-        foreach ($options as $option => $value) {
-            $preparedOptions['--' . $option] = $value;
-        }
-
-        $string = $commandName;
-
-        foreach ($params as $param) {
-            $string .= ' ' . $param;
-        }
-
-        foreach ($preparedOptions as $key => $option) {
-            if (empty($option)) {
-                $string .= ' ' . $key;
-            } else {
-                $string .= ' ' . sprintf('%s=%s', $key, html_entity_decode($option));
-            }
-        }
-
-        $input = new StringInput($string);
-        $input->setInteractive(false);
-        $output = new StreamOutput(fopen('php://temp', 'w'));
-
-        // Run the command
-        $app->doRun($input, $output);
-
-        rewind($output->getStream());
-        $response = stream_get_contents($output->getStream());
+        $response = $commandHelper->run($command);
 
         return array('response' => $response);
     }
