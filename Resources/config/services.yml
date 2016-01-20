@@ -1,0 +1,4 @@
+services:
+    command.runner:
+        class: Mrafalko\CommandRunnerBundle\DependencyInjection\CommandRunner
+        arguments: [@service_container]

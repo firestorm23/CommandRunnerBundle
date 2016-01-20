@@ -1,5 +1,7 @@
 <?
 
+namespace Mrafalko\CommandRunnerBundle\DependencyInjection;
+
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Console\Input\StringInput;
 use Symfony\Component\Console\Output\StreamOutput;
@@ -10,6 +12,10 @@ class CommandRunner {
 
     /** @var ContainerInterface */
     private $container;
+
+    public function __construct(ContainerInterface $container) {
+        $this->container = $container;
+    }
 
     public function run( $command ) {
 
