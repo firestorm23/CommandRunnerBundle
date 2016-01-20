@@ -13,7 +13,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 class CommandRunnerController extends Controller
 {
     /**
-     * @Route("/command-runner/{commandName}")
+     * @Route("/command-runner/{commandName}", name="run_command")
      * @Template()
      *
      * @param $commandName
